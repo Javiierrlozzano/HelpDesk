@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('template_title')
-    Sede
+    Equipo
 @endsection
 
 @section('content')
@@ -13,11 +13,11 @@
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
                             <span id="card_title">
-                                {{ __('Sede') }}
+                                {{ __('Equipo') }}
                             </span>
 
                              <div class="float-right">
-                                <a href="{{ route('sede.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
+                                <a href="{{ route('equipos.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
                                   {{ __('Create New') }}
                                 </a>
                               </div>
@@ -36,24 +36,38 @@
                                     <tr>
                                         <th>No</th>
                                         
-										<th>Idsede</th>
-										<th>Nombresede</th>
+										<th>Idequipos</th>
+										<th>Serial</th>
+										<th>Ipaddress</th>
+										<th>Nombre</th>
+										<th>Marca</th>
+										<th>Modelo</th>
+										<th>Areas Idareas</th>
+										<th>Sede Idsede</th>
+										<th>Tipo Idtipo</th>
 
                                         <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($sedes as $sede)
+                                    @foreach ($equipos as $equipo)
                                         <tr>
                                             <td>{{ ++$i }}</td>
                                             
-											<td>{{ $sede->IdSede }}</td>
-											<td>{{ $sede->NombreSede }}</td>
+											<td>{{ $equipo->IdEquipos }}</td>
+											<td>{{ $equipo->Serial }}</td>
+											<td>{{ $equipo->IpAddress }}</td>
+											<td>{{ $equipo->Nombre }}</td>
+											<td>{{ $equipo->Marca }}</td>
+											<td>{{ $equipo->Modelo }}</td>
+											<td>{{ $equipo->Areas_IdAreas }}</td>
+											<td>{{ $equipo->Sede_IdSede }}</td>
+											<td>{{ $equipo->Tipo_IdTipo }}</td>
 
                                             <td>
-                                                <form action="{{ route('sedes.destroy',$sede->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('sedes.show',$sede->id) }}"><i class="fa fa-fw fa-eye"></i> Show</a>
-                                                    <a class="btn btn-sm btn-success" href="{{ route('sedes.edit',$sede->id) }}"><i class="fa fa-fw fa-edit"></i> Edit</a>
+                                                <form action="{{ route('equipos.destroy',$equipo->id) }}" method="POST">
+                                                    <a class="btn btn-sm btn-primary " href="{{ route('equipos.show',$equipo->id) }}"><i class="fa fa-fw fa-eye"></i> Show</a>
+                                                    <a class="btn btn-sm btn-success" href="{{ route('equipos.edit',$equipo->id) }}"><i class="fa fa-fw fa-edit"></i> Edit</a>
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Delete</button>
@@ -66,7 +80,7 @@
                         </div>
                     </div>
                 </div>
-                {!! $sedes->links() !!}
+                {!! $equipos->links() !!}
             </div>
         </div>
     </div>

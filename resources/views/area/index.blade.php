@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('template_title')
-    Sede
+    Area
 @endsection
 
 @section('content')
@@ -13,11 +13,11 @@
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
                             <span id="card_title">
-                                {{ __('Sede') }}
+                                {{ __('Area') }}
                             </span>
 
                              <div class="float-right">
-                                <a href="{{ route('sede.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
+                                <a href="{{ route('area.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
                                   {{ __('Create New') }}
                                 </a>
                               </div>
@@ -36,24 +36,26 @@
                                     <tr>
                                         <th>No</th>
                                         
-										<th>Idsede</th>
-										<th>Nombresede</th>
+										<th>Idareas</th>
+										<th>Nombrearea</th>
+										<th>Sede Idsede</th>
 
                                         <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($sedes as $sede)
+                                    @foreach ($areas as $area)
                                         <tr>
                                             <td>{{ ++$i }}</td>
                                             
-											<td>{{ $sede->IdSede }}</td>
-											<td>{{ $sede->NombreSede }}</td>
+											<td>{{ $area->IdAreas }}</td>
+											<td>{{ $area->NombreArea }}</td>
+											<td>{{ $area->Sede_IdSede }}</td>
 
                                             <td>
-                                                <form action="{{ route('sedes.destroy',$sede->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('sedes.show',$sede->id) }}"><i class="fa fa-fw fa-eye"></i> Show</a>
-                                                    <a class="btn btn-sm btn-success" href="{{ route('sedes.edit',$sede->id) }}"><i class="fa fa-fw fa-edit"></i> Edit</a>
+                                                <form action="{{ route('areas.destroy',$area->id) }}" method="POST">
+                                                    <a class="btn btn-sm btn-primary " href="{{ route('areas.show',$area->id) }}"><i class="fa fa-fw fa-eye"></i> Show</a>
+                                                    <a class="btn btn-sm btn-success" href="{{ route('areas.edit',$area->id) }}"><i class="fa fa-fw fa-edit"></i> Edit</a>
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Delete</button>
@@ -66,7 +68,7 @@
                         </div>
                     </div>
                 </div>
-                {!! $sedes->links() !!}
+                {!! $areas->links() !!}
             </div>
         </div>
     </div>

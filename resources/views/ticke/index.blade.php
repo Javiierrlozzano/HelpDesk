@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('template_title')
-    Sede
+    Ticke
 @endsection
 
 @section('content')
@@ -13,11 +13,11 @@
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
                             <span id="card_title">
-                                {{ __('Sede') }}
+                                {{ __('Ticke') }}
                             </span>
 
                              <div class="float-right">
-                                <a href="{{ route('sede.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
+                                <a href="{{ route('tickes.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
                                   {{ __('Create New') }}
                                 </a>
                               </div>
@@ -36,24 +36,36 @@
                                     <tr>
                                         <th>No</th>
                                         
-										<th>Idsede</th>
-										<th>Nombresede</th>
+										<th>Idtickes</th>
+										<th>Descripcionproblema</th>
+										<th>Estado</th>
+										<th>Nivelurgencia</th>
+										<th>Usuario</th>
+										<th>Idtecnicos Tecnicos</th>
+										<th>Idequipo Equipo</th>
+										<th>Idmedios Medios</th>
 
                                         <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($sedes as $sede)
+                                    @foreach ($tickes as $ticke)
                                         <tr>
                                             <td>{{ ++$i }}</td>
                                             
-											<td>{{ $sede->IdSede }}</td>
-											<td>{{ $sede->NombreSede }}</td>
+											<td>{{ $ticke->IdTickes }}</td>
+											<td>{{ $ticke->DescripcionProblema }}</td>
+											<td>{{ $ticke->Estado }}</td>
+											<td>{{ $ticke->NivelUrgencia }}</td>
+											<td>{{ $ticke->Usuario }}</td>
+											<td>{{ $ticke->idTecnicos_Tecnicos }}</td>
+											<td>{{ $ticke->idEquipo_Equipo }}</td>
+											<td>{{ $ticke->idMedios_Medios }}</td>
 
                                             <td>
-                                                <form action="{{ route('sedes.destroy',$sede->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('sedes.show',$sede->id) }}"><i class="fa fa-fw fa-eye"></i> Show</a>
-                                                    <a class="btn btn-sm btn-success" href="{{ route('sedes.edit',$sede->id) }}"><i class="fa fa-fw fa-edit"></i> Edit</a>
+                                                <form action="{{ route('tickes.destroy',$ticke->id) }}" method="POST">
+                                                    <a class="btn btn-sm btn-primary " href="{{ route('tickes.show',$ticke->id) }}"><i class="fa fa-fw fa-eye"></i> Show</a>
+                                                    <a class="btn btn-sm btn-success" href="{{ route('tickes.edit',$ticke->id) }}"><i class="fa fa-fw fa-edit"></i> Edit</a>
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Delete</button>
@@ -66,7 +78,7 @@
                         </div>
                     </div>
                 </div>
-                {!! $sedes->links() !!}
+                {!! $tickes->links() !!}
             </div>
         </div>
     </div>

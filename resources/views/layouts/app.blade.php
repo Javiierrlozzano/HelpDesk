@@ -51,6 +51,33 @@
                                 </li>
                             @endif
                         @else
+                                     <!-- Left Side Of Navbar -->
+                    <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                          <a class="nav-link" href="{{ route('area.index') }}">{{ __('Areas') }}</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="{{ route('equipo.index') }}">{{ __('Equipo') }}</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="{{ route('medio.index') }}">{{ __('Medio') }}</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="{{ route('sede.index') }}">{{ __('Sede') }}</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="{{ route('serial.index') }}">{{ __('Serial') }}</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="{{ route('tecnico.index') }}">{{ __('Tecnicos') }}</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="{{ route('ticke.index') }}">{{ __('Ticke') }}</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="{{ route('tipo-equipo.index') }}">{{ __('Tipo-Equipo') }}</a>
+                      </li>
+                    </ul>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
@@ -68,6 +95,8 @@
                                     </form>
                                 </div>
                             </li>
+                            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+       
                         @endguest
                     </ul>
                 </div>
