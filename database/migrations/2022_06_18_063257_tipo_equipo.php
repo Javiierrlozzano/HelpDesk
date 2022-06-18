@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Sede extends Migration
+class TipoEquipo extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class Sede extends Migration
      */
     public function up()
     {
-        Schema::create('Sedes', function (Blueprint $table) {
+        Schema::create('TipoEquipo', function (Blueprint $table) {
             $table->engine = 'InnoDB';
-            $table->bigIncrements('IdSede');
-            $table->string('NombreSede');
+            $table->bigIncrements('IdTipo');
+            $table->string('Tipo');
         });
     }
 
